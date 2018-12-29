@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  * @version 24.07.2018
  * @author Berke
@@ -17,7 +11,6 @@ public class Main {
         System.out.println("If there are no cookies, just type \"\"");
         
         if ( args.length >= 4) { 
-            System.out.println("args.length " + args.length);
             if (!args[0].equals("uri--")){  
                 throw new IllegalArgumentException("Expected uri-- found " + args[0]);
             }

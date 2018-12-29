@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spider;
 
 import java.io.IOException;
@@ -97,7 +92,6 @@ public class Spider {
             css.addAll(crawly.getCSS());
             images.addAll(crawly.getImages());
             javaScript.addAll(crawly.getJS());
-            //uniqueJs.addAll(crawly.getJS());
             //update the list containing the unique web pages and javascript files
             uniquePlusJsPages.addAll(crawly.getLinks());
             //uniquePlusJsPages.addAll(crawly.getJS());
@@ -110,20 +104,14 @@ public class Spider {
                     continue;
                 }
                 // if a web page has a different domain than the seed domain add it to the pages visited list, so it is ignored through rest of the call, then remove it from the pages to visit list
-                if (!domain.equals(getDomain(pagesToVisit.get(0))) || blacklist.contains(pagesToVisit.get(0))) {
-                    if (blacklist.contains(pagesToVisit.get(0))) {
-                        System.out.println("BLACKLISTED " + pagesToVisit.get(0));
-                    }
-                    
+                if (!domain.equals(getDomain(pagesToVisit.get(0))) || blacklist.contains(pagesToVisit.get(0))) {                    
                     pagesVisited.add(pagesToVisit.get(0));
                     pagesToVisit.remove(0);
                     continue;
                 }
 
                 // if there are pages left to visit after the possible removals visit the page
-                //if (!pagesToVisit.isEmpty()) {
-                    printPagesHelper(pagesToVisit.get(0));
-                //}
+                printPagesHelper(pagesToVisit.get(0));                
             }
         }
     }
