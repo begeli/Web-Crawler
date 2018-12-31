@@ -19,8 +19,11 @@ import org.jsoup.select.Elements;
  */
 public class SpiderLeg {
 
-    //properties
+    //constants
     private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
+    private static final int OK_CODE = 200;
+    
+    //properties
     private List<String> links;
     private List<String> picsInThisPage;
     private List<String> jsFilesInThisPage;
@@ -72,7 +75,7 @@ public class SpiderLeg {
             this.htmlDocument.setBaseUri(currentURL);
 
             // if the connection is successful let the user know
-            if (connection.response().statusCode() == 200) {
+            if (connection.response().statusCode() == OK_CODE) {
                 System.out.println("Currently visiting " + currentURL);
             }
 
