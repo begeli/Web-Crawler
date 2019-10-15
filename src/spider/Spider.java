@@ -103,6 +103,12 @@ public class Spider {
                     pagesToVisit.remove(0);
                     continue;
                 }
+                // if the previous page is visited but not excluded from the list, make the crawler visit that place again
+                // so that it will be removed correctly.
+                else if (!pagesVisited.contains(pagesToVisit.get(1))){
+                    pagesToVisit.add(0);
+                    continue;
+                }
                 // if a web page has a different domain than the seed domain add it to the pages visited list, so it is ignored through rest of the call, then remove it from the pages to visit list
                 if (!domain.equals(getDomain(pagesToVisit.get(0))) || blacklist.contains(pagesToVisit.get(0))) {                    
                     pagesVisited.add(pagesToVisit.get(0));
